@@ -1,10 +1,19 @@
-const getProductsOfNormalQuality = () => {};
+const getProductsOfNormalQuality = (pProductList) => {
+  return pProductList.filter((product) => product.quality === "Normal")
+};
 
-const getProductImageWithPngExtension = () => {};
+const getProductImageWithPngExtension = (pProductList) => {
+  return pProductList.filter((product)=> product.productImage.includes("png"))
+};
 
-const getCalorieOfTheMostExpensiveProduct = () => {};
+const getCalorieOfTheMostExpensiveProduct = (pProductList) => {
+  return pProductList.sort((firstProduct, secondProduct) => secondProduct.price-firstProduct.price) [0].totalCalories;
+};
 
-const sortByExpirationDate = () => {};
+const sortByExpirationDate = (pProductList) => {
+  return pProductList
+  .sort((obja,objb)=> Number(obja.expireDate-objb.expireDate))
+};
 
 export {
   getProductsOfNormalQuality,
@@ -12,3 +21,4 @@ export {
   getCalorieOfTheMostExpensiveProduct,
   sortByExpirationDate,
 };
+
